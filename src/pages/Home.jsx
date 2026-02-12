@@ -40,7 +40,13 @@ function Home() {
 
   return (
     <div className="container mt-4">
-      <h2 className="mb-4 text-center">Products</h2>
+      <h2 className="mb-4 text-center">All The Favirote Code</h2>
+      // Show message if no products are available
+      // This check is optional since we are fetching products from an API, but it's good to handle the case where the API returns an empty array.  
+      {products.length === 0 ? (
+        <p className="text-center">No products available.</p>
+      ) : null}
+
       <div className="row justify-content-center">
         {products.map((product, index) => (
           <ProductCard key={product.id} product={product} index={index} />
